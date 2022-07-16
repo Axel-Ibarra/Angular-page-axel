@@ -1,0 +1,225 @@
+<body>
+  <section class="vh-80">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div id="registerForm" class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <p class="form-label select-label">Choose option</p>
+                  <mat-select class="select form-control-lg" placeholder="Are you a parent or a babysitter?"
+                    (selectionChange)="babysitterOrParent($event.value)">
+                    <mat-option value="true">Babysitter</mat-option>
+                    <mat-option value="false">Parent</mat-option>
+                  </mat-select>
+                </div>
+              </div>
+              <div *ngIf=" isBabysitter ; then thenBlock else elseBlock"></div>
+              <ng-template #thenBlock>
+                <form #registerForm="ngForm">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.firstName" name="firstName" #name="ngModel"
+                          placeholder="First Name" />
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.lastName" name="lastName" #lastName="ngModel"
+                          placeholder="Last Name" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                      <input type="date" matInput required [(ngModel)]="profile.dateOfBirth" name="dateOfBirth"
+                        #dateOfBirth="ngModel" placeholder="Birthday" />
+                    </div>
+
+                    <input type="file" (change)="selectFile($event)">
+
+                    <div class="col-md-6 mb-4">
+                      <mat-radio-group (change)="selectGender($event.value)" class="form__element">
+                        <h3 class="mb-2 pb-1">Gender: </h3>
+                        <mat-radio-button class="radio__button" value="Female" [(ngModel)]="profile.gender"
+                          name="gender" #gender="ngModel">Female</mat-radio-button>
+                        <mat-radio-button class="radio__button" value="Male" [(ngModel)]="profile.gender" name="gender"
+                          #gender="ngModel">Male</mat-radio-button>
+                        <mat-radio-button class="radio__button" value="Other" [(ngModel)]="profile.gender" name="gender"
+                          #gender="ngModel">Other</mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.email" name="email" #email="ngModel" placeholder="Email" />
+                      </mat-form-field>
+                    </div>
+                      <div class="col-md-6 mb-4">
+                        <mat-form-field class="form__element">
+                          <input matInput required [(ngModel)]="profile.phoneNumber" name="phoneNumber" #phone="ngModel"
+                            placeholder="Phone Number" />
+                        </mat-form-field>
+                    </div>
+                    
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field>
+                        <input matInput required type="password" [(ngModel)]="profile.password" name="password" #password="ngModel" id="password" class="form-control form-control-lg"
+                          placeholder="Password" />
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field>
+                        <input matInput required type="password" [(ngModel)]="profile.confirmPassword" name="confirmPassword" #confirmPassword="ngModel" class="form-control form-control-lg"
+                          placeholder="Confirm password" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <mat-form-field class="form__element">
+                        <input matInput required type="number" [(ngModel)]="profile.price" name="price" #price="ngModel"
+                          placeholder="Price per hour" />
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                      <p class="form-label select-label">Choose option</p>
+                      <mat-select class="select form-control-lg" placeholder="Hours available: "
+                        (selectionChange)="selectHours($event.value)">
+                        <mat-option class="radio__button" value="1" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">1</mat-option>
+                        <mat-option class="radio__button" value="2" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">2</mat-option>
+                        <mat-option class="radio__button" value="3" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">3</mat-option>
+                        <mat-option class="radio__button" value="4" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">4</mat-option>
+                        <mat-option class="radio__button" value="5" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">5</mat-option>
+                        <mat-option class="radio__button" value="6" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">6</mat-option>
+                        <mat-option class="radio__button" value="7" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">7</mat-option>
+                        <mat-option class="radio__button" value="8" [(ngModel)]="profile.workTime" name="workTime"
+                        #workTime="ngModel">8</mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+
+                  <!-- <div class="mt-4 pt-2">
+                    <button type="reset" [disabled]="!registerForm.form.valid" class="btn btn-primary btn-lg"
+                      (click)="register(registerForm)">Register</button>
+                  </div> -->
+                  <div class="mt-4 pt-2">
+                    <button type="reset" [disabled]="!registerForm.form.valid" class="btn btn-primary btn-lg"
+                      (click)="passwordComparison(profile.password, profile.confirmPassword, register(registerForm))">Register</button>
+                  </div>
+
+                </form>
+              </ng-template>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+              <ng-template #elseBlock>
+
+                <form #registerForm="ngForm">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.firstName" name="firstName" #name="ngModel"
+                          placeholder="First Name" />
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.lastName" name="lastName" #lastName="ngModel"
+                          placeholder="Last Name" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                      <!-- <mat-form-field class="form__element" [attr.data-hidden]="[isBabysitter]"> -->
+                      <input type="date" matInput required [(ngModel)]="profile.dateOfBirth" name="dateOfBirth"
+                        #dateOfBirth="ngModel" placeholder="Birthday" />
+                      <!-- </mat-form-field> -->
+                    </div>
+
+                    <!-- <input type="file" (change)="selectFile($event)"> -->
+
+
+                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                      <mat-form-field class="form__element">
+                        <input type="number" matInput required name="NumberOfChilds" placeholder="NumberOfChildren" />
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field class="form__element">
+                        <input matInput required name="email" placeholder="Email" />
+                      </mat-form-field>
+                    </div>
+                    <!-- <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.phoneNumber" name="phone" #phone="ngModel"
+                          placeholder="Phone Number" />
+                      </mat-form-field>
+                    </div> -->
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field>
+                        <input matInput type="password" id="password" class="form-control form-control-lg"
+                          placeholder="Password" />
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field>
+                        <input matInput type="tel" id="confirmPassword" class="form-control form-control-lg"
+                          placeholder="Confirm password" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 pt-2">
+                    <button type="reset" [disabled]="!registerForm.form.valid" class="btn btn-primary btn-lg"
+                      (click)="register(registerForm)">Register</button>
+                  </div>
+
+                </form>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+</body>

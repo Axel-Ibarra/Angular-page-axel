@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+ 
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+body::-webkit-scrollbar {
+    width: 6px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom right, rgba(200, 170, 251, 1), rgba(87, 224, 245, 1));
+    opacity: 0.4;
+    
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(164, 125, 232);  /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+  }
