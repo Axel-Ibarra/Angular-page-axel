@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <section class="vh-80">
+      <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-12 col-lg-9 col-xl-7">
+            <div id="registerForm" class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+              <div class="card-body p-4 p-md-5">
+                <h3 class="mb-4 pb-2 pb-md-0 mb-md-4">Parents Registration Form</h3>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <p class="form-label select-label mb-md-1">Choose option</p>
+                    <mat-select class="select form-control-lg" placeholder="Are you a Parent or a Babysitter?">
+                      <mat-option (click)="goToBabysitter()">Babysitter</mat-option>
+                      <mat-option (click)="goToParents()">Parent</mat-option>
+                    </mat-select>
+  
+                  </div>
+                </div>
+
+                <form #registerForm="ngForm">
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.firstName" name="firstName" #name="ngModel"
+                          placeholder="First Name" />
+                      </mat-form-field>
+                    </div>
+  
+                    <div class="col-md-6 mb-4">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.lastName" name="lastName" #lastName="ngModel"
+                          placeholder="Last Name" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                      <mat-form-field class="form__element">
+                      <input type="date" matInput required [(ngModel)]="profile.dateOfBirth" name="dateOfBirth"
+                        #dateOfBirth="ngModel" placeholder="Birthday" />
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                      <mat-form-field class="form__element">
+                        <input type="number" matInput required [(ngModel)]="profile.childrensNumber" name="childrensNumber"
+                        #childrensNumber="ngModel" placeholder="Number of Childrens" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field class="form__element">
+                        <input matInput required name="email" placeholder="Email" />
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field class="form__element">
+                        <input matInput required [(ngModel)]="profile.phoneNumber" name="phone" #phone="ngModel"placeholder="Phone Number" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field>
+                        <input matInput type="password" id="password" class="form-control form-control-lg"
+                          placeholder="Password" />
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+                      <mat-form-field>
+                        <input matInput type="tel" id="confirmPassword" class="form-control form-control-lg"
+                          placeholder="Confirm password" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+  
+                  <div class="mt-4 pt-2">
+                    <button type="reset" [disabled]="!registerForm.form.valid" class="btn btn-primary btn-lg"
+                      (click)="babysitRegister(registerForm)">Register</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>

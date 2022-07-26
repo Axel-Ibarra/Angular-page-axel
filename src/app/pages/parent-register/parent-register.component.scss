@@ -1,0 +1,38 @@
+body{
+    height: 115vh;
+      width: 100%;
+    /* fallback for old browsers */
+    background: #f093fb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom right, rgb(147, 170, 251), rgb(87, 224, 245));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom right, rgba(200, 170, 251, 1), rgba(87, 224, 245, 1))
+    }
+  
+  #registerForm{
+    display:block;
+    margin-top: 5%;
+  }
+  
+  .form__element{
+      display: flex;
+      align-items: center;
+  
+      .radio__button{
+          margin-top: -15px;
+          margin-left: 3px;
+          margin-right: 3px;
+      }
+  }
+  
+  [data-hidden="false"]
+  {
+    display: none !important
+  }
+  
+  [parent-hidden="true"]
+  {
+    display: none !important
+  }

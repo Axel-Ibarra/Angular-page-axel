@@ -10,13 +10,16 @@ import { MaterialModule } from './material.module';
 import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ParentsRegisterComponent } from './pages/parent-register/parent-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProfilesComponent,
-    RegisterComponent
+    RegisterComponent,
+    ParentsRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     MdbModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

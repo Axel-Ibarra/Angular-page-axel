@@ -9,6 +9,9 @@ import { ProfileService } from './services/profile.service';
   styleUrls: ['./profiles.component.scss']
 })
 export class ProfilesComponent implements OnInit {
+
+  validation = true;
+
   profiles!: Profile[];
   constructor(private ProfileSvc: ProfileService) { }
 
@@ -20,5 +23,17 @@ export class ProfilesComponent implements OnInit {
     .subscribe();
   }
   
-  
+  selectSection(event:any){
+    console.log(event)
+    return this.validation = event
+  }
+
+  comments(){
+return this.validation = false
+  }
+
+  profile(){
+    return this.validation = true
+  }
+
 }

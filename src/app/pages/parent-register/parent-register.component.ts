@@ -4,17 +4,15 @@ import { Router } from '@angular/router';
 /* import * as EventEmitter from 'events'; */
 import { ProfileService } from '../profiles/services/profile.service';
 
-
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  templateUrl: './parent-register.component.html',
+  styleUrls: ['./parent-register.component.scss']
 })
 
-export class RegisterComponent implements OnInit {
+export class ParentsRegisterComponent implements OnInit {
   isBabysitter = true;
   isParent = false;
-  condition : Boolean = false;
   gender = '';
   workTime = '';
   selectedFile!: File;
@@ -25,11 +23,8 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: '',
     confirmPassword: '',
-    image: '',
-    gender:'',
     dateOfBirth:'',
-    price: Number,
-    workTime:'',
+    childrensNumber: '',
     phoneNumber: ''
   }
 
@@ -62,7 +57,6 @@ export class RegisterComponent implements OnInit {
     }else{
       this.ProfileSvc.postProfile(data).subscribe(data => {
         console.log(data)
-        this.goHome()
       });
     }
 
@@ -85,17 +79,12 @@ export class RegisterComponent implements OnInit {
       return this.babysitRegister = event;
     
   }
+  goToProfiles():void{
+    this.router.navigate(['./profiles']);
+  }
 
   goToBabysitter():void {
     this.router.navigate(['./register']);
-  }
-
-  goHome():void {
-    this.router.navigate(['./mockHome']);
-  }
-
-  goToProfiles():void{
-    this.router.navigate(['./profiles']);
   }
 
   goToParents():void{
@@ -120,3 +109,4 @@ export class RegisterComponent implements OnInit {
           console.log(btoa(binaryString));
   }
 }
+

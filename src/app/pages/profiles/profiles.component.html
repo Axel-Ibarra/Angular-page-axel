@@ -1,20 +1,234 @@
-<section class="container">
-    <mat-card class="example-card" *ngFor="let profile of profiles">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title> {{ profile.firstName }} </mat-card-title>
-          <mat-card-subtitle> {{ profile.firstName }} </mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="{{'data:image/jpg;base64,' + profile.image}}" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-           {{ profile.price | currency }}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-    
-</section>
+<body>
+    <section class="container" >
+        <div class="container emp-profile shadow-2-strong">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <h5>
+                                Kshiti Ghelani
+                            </h5>
+                            <h6>
+                                Babysitter
+                            </h6>
+                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" >
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab"
+                                        aria-controls="home" aria-selected="true" (click)="profile()">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" role="tab"
+                                        aria-controls="profile" aria-selected="false" (click)="comments()">Comments</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                    </div>
+                </div>
+                <div *ngIf=" selectSection(validation); then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                <div id="window" class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <div class="profile-img">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
+                                <div id="photo-button" class="file btn btn-lg btn-primary">
+                                    Change Photo
+                                    <input type="file" name="file" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <p>Maria</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Last Name</label>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <p>Rodriguez</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <p>kshitighelani@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <p>123 456 7890</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                       
+                    <div class="col-md-5">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="profile-second" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Pacted Contracts</label>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <p>5</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label>Hours Avaiable</label>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <p>6</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            </form>
+        </div>
+    </section>
+
+<ng-template #elseBlock>
+    <section class="content-item" id="comments">
+        <div class="container">   
+            <div class="row">
+                <div class="col-sm-8">   
+                    <form>
+                        <h3 class="pull-left">New Comment</h3>
+                        <button type="submit" class="btn btn-normal pull-right">Submit</button>
+                        <fieldset>
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                    <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                                </div>
+                            </div>  	
+                        </fieldset>
+                    </form>
+                    
+                    <h3>4 Comments</h3>
+                    
+                    <!-- COMMENT 1 - START -->
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">John Doe</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                                <li><i class="fa fa-thumbs-up"></i>13</li>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li class=""><a href="">Like</a></li>
+                                <li class=""><a href="">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COMMENT 1 - END -->
+                    
+                    <!-- COMMENT 2 - START -->
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">John Doe</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                                <li><i class="fa fa-thumbs-up"></i>13</li>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li class=""><a href="">Like</a></li>
+                                <li class=""><a href="">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COMMENT 2 - END -->
+                    
+                    <!-- COMMENT 3 - START -->
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">John Doe</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                                <li><i class="fa fa-thumbs-up"></i>13</li>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li class=""><a href="">Like</a></li>
+                                <li class=""><a href="">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COMMENT 3 - END -->
+                    
+                    <!-- COMMENT 4 - START -->
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">John Doe</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                                <li><i class="fa fa-thumbs-up"></i>13</li>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li class=""><a href="">Like</a></li>
+                                <li class=""><a href="">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COMMENT 4 - END -->
+                
+                </div>
+            </div>
+        </div>
+    </section></ng-template>
+</body>

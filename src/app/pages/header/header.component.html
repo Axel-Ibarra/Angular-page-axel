@@ -1,3 +1,8 @@
+
+<!-- <div *ngIf="change()"></div> -->
+<div *ngIf=" change(); then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
 <header class="head_content">
     <!-- <mat-toolbar color="primary">
       <span>BabysitterFy</span>
@@ -39,14 +44,11 @@
             <li class="nav-item">
               <a class="nav-link" href="https://mdbootstrap.com/getting-started/" target="_blank">Contact</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./login">Login</a>
-            </li>
           </ul>
   
           <!-- Right -->
           <ul id="search" class="navbar-nav nav-flex-icons">
-            <li>
+            <li>  
               <input type="search" class="form-control rounded"
                placeholder="Search" aria-label="Search"
                aria-describedby="search-addon"/>
@@ -75,3 +77,39 @@
     </nav>
     
 </header>
+</ng-template>
+
+<ng-template #elseBlock>
+<header class="head_content">
+  <!-- <mat-toolbar color="primary">
+    <span>BabysitterFy</span>
+    <div class="container">
+       <button (click)="goHome()" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar> -->
+
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+        <strong>BabysitterFy</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+
+      </div>
+
+  </nav>
+  
+</header>
+</ng-template>
